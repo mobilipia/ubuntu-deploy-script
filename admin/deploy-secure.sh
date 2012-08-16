@@ -70,7 +70,7 @@ done
  
 # create a new user for login
 useradd -m -s /bin/bash $userName
-echo $pass1 | passwd --stdin $userName
+echo $pass1 >> passwd $userName
 
 # login as that user
 sshpass -p $pass1 ssh $userName@localhost
