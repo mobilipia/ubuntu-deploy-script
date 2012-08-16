@@ -33,7 +33,7 @@ To use these scripts, run the following commands from the Ubuntu bash on a **cle
     cd /opt/
     git clone git://github.com/mecharius/ubuntu-deploy-scripts.git deploy-scripts
     cd deploy-scripts
-    sh deploy-server.sh
+    sh ubuntu-deploy.sh
 
 Follow the on screen prompts to complete the installation.
 
