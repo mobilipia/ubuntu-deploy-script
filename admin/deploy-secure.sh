@@ -38,7 +38,7 @@ $pass2 = 2
 while [ $pass1 -ne $pass2 ] 
 do
 	dialog --title "Set Password" --backtitle "Ubuntu Server Deploy\
-	 Script 1.0" --inputbox "Specify a password to use for "\ $userName \ ":" 9 50
+	 Script 1.0" --inputbox "Specify a password to use for the new user:" 9 50
 	$pass1 = $?
 	
 	dialog --title "Confirm Password" --backtitle "Ubuntu Server Deploy\

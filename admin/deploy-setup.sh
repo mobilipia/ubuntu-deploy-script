@@ -15,7 +15,7 @@
 # update apt-get and run some upgrades
 apt-get update
 apt-get upgrade --show-upgraded
-aot-get install curl wget sudo build-essential
+apt-get install curl wget sudo build-essential
 
 # set the host name
 dialog --title "Set the host name" --backtitle "Ubuntu Server Deploy\
