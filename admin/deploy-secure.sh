@@ -71,7 +71,8 @@ done
 # create a new user for login
 useradd -m -s /bin/bash $userName
 #echo -e "$pass1\n$pass1\n" | sudo passwd $userName
-echo "$userName:$pass1" | chpasswd
+#echo "$userName:$pass1" | chpasswd
+echo -n '$#@pass1@#$' | passwd $userName --stdin
 
 # login as that user
 sshpass -p $pass1 ssh $userName@localhost
