@@ -26,7 +26,7 @@ dialog --title "Continue with installation!" --backtitle "Ubuntu Server Deploy\
  Script 1.0" --yesno "This should be run on a clean Ubuntu 10.04 installation.\
  During the process some changes will be made to security which will involve \
  setting new passwords and restricting access to the root user account.  Do you \
- want to continue?" 9 50
+ want to continue?" 12 50
  
 if [ $? -gt 0 ]; then
 	exit 0;

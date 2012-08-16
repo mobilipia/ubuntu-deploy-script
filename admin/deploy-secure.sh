@@ -30,7 +30,7 @@ dialog --title "Create new user" --backtitle "Ubuntu Server Deploy\
  user name and password. . ." 9 50
 
 dialog --title "Set Username" --backtitle "Ubuntu Server Deploy\
- Script 1.0" --input "Specify a username to use instead of the root user:" 9 50
+ Script 1.0" --inputbox "Specify a username to use instead of the root user:" 9 50
 $userName = $?
 
 $pass1 = 1
@@ -38,11 +38,11 @@ $pass2 = 2
 while [ $pass1 -ne $pass2 ] 
 do
 	dialog --title "Set Password" --backtitle "Ubuntu Server Deploy\
-	 Script 1.0" --input "Specify a password to use for "\ $userName \ ":" 9 50
+	 Script 1.0" --inputbox "Specify a password to use for "\ $userName \ ":" 9 50
 	$pass1 = $?
 	
 	dialog --title "Confirm Password" --backtitle "Ubuntu Server Deploy\
-	 Script 1.0" --input "Confirm the password:" 9 50
+	 Script 1.0" --inputbox "Confirm the password:" 9 50
 	$pass2 = $?
 	
 	if [ $pass1 -ne $pass2 ]; then
