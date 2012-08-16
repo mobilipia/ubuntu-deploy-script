@@ -56,6 +56,11 @@ do
 done
  
 # create a new user for login
+echo $userName
+echo $pass1
+echo $pass2
+read testingOneTwoThree
+
 useradd -m -s /bin/bash $userName
 passwd $userName $pass1
 
