@@ -16,13 +16,6 @@
 # http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/
 apt-get install sshpass -y
 
-# disable root ssh access
-sed -i "s/PermitRootLogin[^ ]/PermitRootLogin no/" /etc/ssh/sshd_config
-
-# disable password login
-#sed -i "s/PasswordAuthentication [^ ]/PasswordAuthentication no/" /etc/ssh/sshd_config
-# (COMMENTED OUT AS NEED TO GENERATE ON LOCAL MACHINE FIRST)
-
 # get the new user name and password
 dialog --title "Create new user" --backtitle "Ubuntu Server Deploy\
  Script 1.0" --msgbox "A new user will now be created to operate replace \
@@ -73,6 +66,17 @@ useradd -m -s /bin/bash $userName
 #echo -e "$pass1\n$pass1\n" | sudo passwd $userName
 #echo "$userName:$pass1" | chpasswd
 echo -n '$#@pass1@#$' | passwd $userName --stdin
+
+if [ $? -gt 0 ]; then
+	exit 1;
+fi
+
+# disable root ssh access
+sed -i "s/PermitRootLogin[^ ]/PermitRootLogin no/" /etc/ssh/sshd_config
+
+# disable password login
+#sed -i "s/PasswordAuthentication [^ ]/PasswordAuthentication no/" /etc/ssh/sshd_config
+# (COMMENTED OUT AS NEED TO GENERATE ON LOCAL MACHINE FIRST)
 
 # login as that user
 sshpass -p $pass1 ssh $userName@localhost
