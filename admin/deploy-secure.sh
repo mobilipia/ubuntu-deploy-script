@@ -35,7 +35,7 @@ dialog --title "Set Username" --backtitle "Ubuntu Server Deploy\
 if [ $? -ne 0 ]; then
 	exit 1;
 fi
-userName='cat /tmp/tmp.inputbox.$$'
+userName=$(cat /tmp/tmp.inputbox.$$)
 rm -f /tmp/tmp.inputbox.$$
 
 pass1=1
@@ -47,7 +47,7 @@ do
 	if [ $? -ne 0 ]; then
 		exit 1;
 	fi
-	pass1='cat /tmp/tmp.inputbox.$$'
+	pass1=$(cat /tmp/tmp.inputbox.$$)
 	rm -f /tmp/tmp.inputbox.$$
 
 	dialog --title "Confirm Password" --backtitle "Ubuntu Server Deploy\
@@ -55,7 +55,7 @@ do
 	if [ $? -ne 0 ]; then
 		exit 1;
 	fi
-	pass2='cat /tmp/tmp.inputbox.$$'
+	pass2=$(cat /tmp/tmp.inputbox.$$)
 	rm -f /tmp/tmp.inputbox.$$
 	
 	if [ $pass1 -ne $pass2 ]; then

@@ -24,7 +24,7 @@ dialog --title "Set the host name" --backtitle "Ubuntu Server Deploy\
 if [ $? -ne 0 ]; then
 	exit 1;
 fi
-hostname='cat /tmp/tmp.inputbox.$$'
+hostname=$(cat /tmp/tmp.inputbox.$$)
 rm -f /tmp/tmp.inputbox.$$
 
 dialog --title "Set the FQDN" --backtitle "Ubuntu Server Deploy\
@@ -33,7 +33,7 @@ dialog --title "Set the FQDN" --backtitle "Ubuntu Server Deploy\
 if [ $? -ne 0 ]; then
 	exit 1;
 fi
-fqdn='cat /tmp/tmp.inputbox.$$'
+fqdn=$(cat /tmp/tmp.inputbox.$$)
 rm -f /tmp/tmp.inputbox.$$
 
 
@@ -42,7 +42,7 @@ dialog --title "Set the IP4 Address" --backtitle "Ubuntu Server Deploy\
 if [ $? -ne 0 ]; then
 	exit 1;
 fi
-systemip4='cat /tmp/tmp.inputbox.$$'
+systemip4=$(cat /tmp/tmp.inputbox.$$)
 rm -f /tmp/tmp.inputbox.$$
 
 dialog --title "Set the IP6 Address" --backtitle "Ubuntu Server Deploy\
@@ -51,7 +51,7 @@ dialog --title "Set the IP6 Address" --backtitle "Ubuntu Server Deploy\
 if [ $? -ne 0 ]; then
 	systemip6=0
 else
-	systemip6='cat /tmp/tmp.inputbox.$$'
+	systemip6=$(cat /tmp/tmp.inputbox.$$)
 fi
 rm -f /tmp/tmp.inputbox.$$
 

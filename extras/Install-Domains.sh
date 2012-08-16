@@ -24,7 +24,7 @@ while [ $continueWithDomains -eq 0 ]; do
 	if [ $? -ne 0 ]; then
 		exit 1;
 	fi
-	serverName='cat /tmp/tmp.inputbox.$$'
+	serverName=$(cat /tmp/tmp.inputbox.$$)
 	rm -f /tmp/tmp.inputbox.$$
 
 	# get the document root from the user
@@ -33,7 +33,7 @@ while [ $continueWithDomains -eq 0 ]; do
 	if [ $? -ne 0 ]; then
 		exit 1;
 	fi
-	documentRoot='cat /tmp/tmp.inputbox.$$'
+	documentRoot=$(cat /tmp/tmp.inputbox.$$)
 	rm -f /tmp/tmp.inputbox.$$
 
 	# copy and edit the co	nfiuration file
