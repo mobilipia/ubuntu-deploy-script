@@ -13,4 +13,4 @@
 #############################################################
 
 # install
-apt-get install -y php5 php-pear php5-mysql php5-suhosin xcache
+apt-get install -y php5 php-pear php-cli php5-mysql php5-suhosin xcache
