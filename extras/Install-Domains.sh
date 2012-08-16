@@ -15,19 +15,19 @@
 # check if the user wants to add domains
 dialog --title "Add an Apache Domain?" --backtitle "Ubuntu Server Deploy\
 Script 1.0" --yesno "Do you want to add an apache domain?" 9 50
-$continueWithDomains = $?
+continueWithDomains=$?
 
 while [ $continueWithDomains -eq 0 ] 
 (
 	# get the domain name from the user
 	dialog --title "Set Server Name" --backtitle "Ubuntu Server Deploy\
-	Script 1.0" --input "Specify the server name (e.g. yourdomain.com)" 9 50
-	$serverName = $?
+	Script 1.0" --inputbox "Specify the server name (e.g. yourdomain.com)" 9 50
+	serverName=$?
 
 	# get the document root from the user
 	dialog --title "Set Username" --backtitle "Ubuntu Server Deploy\
 	Script 1.0" --input "Specify the document root (e.g. /var/www/yourdomain.com):" 9 50
-	$documentRoot = $?
+	documentRoot=$?
 
 	# copy and edit the co	nfiuration file
 	cp ../includes/VirtualHost.txt /etc/apache2/sites-available/$serverName
@@ -42,6 +42,6 @@ while [ $continueWithDomains -eq 0 ]
 	# check if the user wants to add more domains
 	dialog --title "Add Another Domain?" --backtitle "Ubuntu Server Deploy\
 	Script 1.0" --yesno "Do you want to add another domain?" 9 50
-	$continueWithDomains = $?
+	$continueWithDomains=$?
 
 )

@@ -31,7 +31,7 @@ dialog --title "Create new user" --backtitle "Ubuntu Server Deploy\
 
 dialog --title "Set Username" --backtitle "Ubuntu Server Deploy\
  Script 1.0" --inputbox "Specify a username to use instead of the root user:" 9 50
-$userName = $?
+$userName=$?
 
 $pass1 = 1
 $pass2 = 2
@@ -39,11 +39,11 @@ while [ $pass1 -ne $pass2 ]
 do
 	dialog --title "Set Password" --backtitle "Ubuntu Server Deploy\
 	 Script 1.0" --inputbox "Specify a password to use for the new user:" 9 50
-	$pass1 = $?
+	pass1=$?
 	
 	dialog --title "Confirm Password" --backtitle "Ubuntu Server Deploy\
 	 Script 1.0" --inputbox "Confirm the password:" 9 50
-	$pass2 = $?
+	pass2=$?
 	
 	if [ $pass1 -ne $pass2 ]; then
 		dialog --title "Continue with installation!" --backtitle "Ubuntu Server Deploy\
