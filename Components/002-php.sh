@@ -3,8 +3,8 @@
 #############################################################
 #	Ubuntu Server Deploy Script (version 1.0)				#
 #															#
-#	001-apache.sh											#
-#		Sets up apache										#
+#	002-php.sh												#
+#		Sets up php											#
 #															#
 #															#
 #		by William Hart (www.williamhart.info)				#
@@ -12,4 +12,5 @@
 #															#
 #############################################################
 
-apt-get install -y apache2 apache2-prefork-dev libarpl-dev libaprutil1-dev
+# install
+apt-get install -y php5 php-pear php5-mysql php5-suhosin xcache

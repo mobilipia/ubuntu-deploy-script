@@ -1,0 +1,6 @@
+<VirtualHost *:80>
+    ServerName [servername]
+    DocumentRoot [documentroot]
+
+    [extra]
+</VirtualHost>

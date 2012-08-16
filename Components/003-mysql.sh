@@ -3,8 +3,8 @@
 #############################################################
 #	Ubuntu Server Deploy Script (version 1.0)				#
 #															#
-#	001-apache.sh											#
-#		Sets up apache										#
+#	003-mysql.sh											#
+#		Sets up mysql										#
 #															#
 #															#
 #		by William Hart (www.williamhart.info)				#
@@ -12,4 +12,8 @@
 #															#
 #############################################################
 
-apt-get install -y apache2 apache2-prefork-dev libarpl-dev libaprutil1-dev
+# install
+apt-get install -y mysql-server mysql-client mysql-common phpmyadmin
+
+# configure
+mysql_secure_installation
