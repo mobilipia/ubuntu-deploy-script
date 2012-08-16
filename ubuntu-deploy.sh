@@ -13,6 +13,8 @@
 #															#
 #############################################################
 
+# install dialog
+apt-get install -y dialog
 
 # print welcome message and confirm the user wants to continue
 dialog --title "Welcome!" --backtitle "Ubuntu Server Deploy\
@@ -26,19 +28,19 @@ dialog --title "Continue with installation!" --backtitle "Ubuntu Server Deploy\
  setting new passwords and restricting access to the root user account.  Do you \
  want to continue?" 9 50
  
-if [ $? -gt 0 ]
+if [ $? -gt 0 ]; then
 	exit 0;
 fi
 
 # basic set up
 sh "admin/deploy-setup.sh"
-if [ $? -gt 0 ]
+if [ $? -gt 0 ]; then
 	exit 1;
 fi
 
 # start deployment by securing the installation
 sh "admin/deploy-secure.sh"
-if [ $? -gt 0 ]
+if [ $? -gt 0 ]; then
 	exit 1;
 fi
 

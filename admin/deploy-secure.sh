@@ -36,7 +36,7 @@ $userName = $?
 $pass1 = 1
 $pass2 = 2
 while [ $pass1 -ne $pass2 ] 
-(
+do
 	dialog --title "Set Password" --backtitle "Ubuntu Server Deploy\
 	 Script 1.0" --input "Specify a password to use for "\ $userName \ ":" 9 50
 	$pass1 = $?
@@ -45,15 +45,15 @@ while [ $pass1 -ne $pass2 ]
 	 Script 1.0" --input "Confirm the password:" 9 50
 	$pass2 = $?
 	
-	if [ $pass1 -ne $pass2 ]
+	if [ $pass1 -ne $pass2 ]; then
 		dialog --title "Continue with installation!" --backtitle "Ubuntu Server Deploy\
 		 Script 1.0" --yesno "The passwords you have entered do not match.  Do you want \
 		 try again? (Select No to exit installation, or Yes to try again)" 9 50
-		if [ $? -gt 0 ]
+		if [ $? -gt 0 ]; then
 			exit 1; # exit with error
 		fi
 	fi
-)
+done
  
 # create a new user for login
 useradd -m -s /bin/bash $userName
