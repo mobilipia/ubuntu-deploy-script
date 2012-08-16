@@ -69,13 +69,8 @@ do
 done
  
 # create a new user for login
-echo $userName
-echo $pass1
-echo $pass2
-read testingOneTwoThree
-
 useradd -m -s /bin/bash $userName
-passwd $userName $pass1
+echo $pass1 | passwd $userName
 
 # login as that user
 sshpass -p $pass1 ssh $userName@localhost
