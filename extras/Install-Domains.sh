@@ -17,8 +17,7 @@ dialog --title "Add an Apache Domain?" --backtitle "Ubuntu Server Deploy\
 Script 1.0" --yesno "Do you want to add an apache domain?" 9 50
 continueWithDomains=$?
 
-while [ $continueWithDomains -eq 0 ] 
-(
+while [ $continueWithDomains -eq 0 ]; do
 	# get the domain name from the user
 	dialog --title "Set Server Name" --backtitle "Ubuntu Server Deploy\
 	Script 1.0" --inputbox "Specify the server name (e.g. yourdomain.com)" 9 50
@@ -43,5 +42,4 @@ while [ $continueWithDomains -eq 0 ]
 	dialog --title "Add Another Domain?" --backtitle "Ubuntu Server Deploy\
 	Script 1.0" --yesno "Do you want to add another domain?" 9 50
 	$continueWithDomains=$?
-
-)
+done

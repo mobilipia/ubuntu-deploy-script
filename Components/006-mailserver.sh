@@ -26,4 +26,4 @@ apt-get install postfix postfix-mysql libsasl2-modules libsasl2-modules-sql libg
 
 # now we configure shorewall
 cp /usr/share/doc/shorewall/default-config/interfaces /etc/shorewall/
-echo "net     eth0            detect          dhcp,tcpflags,logmartians,nosmurfs" > /etc/shorewall/interfaces
+echo "net     eth0            detect          dhcp,tcpflags,logmartians,nosmurfs" >> /etc/shorewall/interfaces

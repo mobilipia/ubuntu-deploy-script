@@ -38,9 +38,9 @@ dialog --title "Set the IP6 Address" --backtitle "Ubuntu Server Deploy\
 systemip6=$?
 
 echo $hostname > /etc/hostname
-echo '127.0.0.1 localhost.localdomain localhost\n' > /etc/hosts
-echo '$systemip4 $fqdn $hostname\n' > /etc/hosts
-echo '$systemip6 $fqdn $hostname\n\n' > /etc/hosts
+echo '127.0.0.1 localhost.localdomain localhost\n' >> /etc/hosts
+echo $systemip4\ " " \ $fqdn \ " " \ $hostname "\n" >> /etc/hosts
+echo $systemip6\ " " \ $fqdn \ " " \ $hostname "\n" >> /etc/hosts
 
 # set the time zone
 dpkg-reconfigure tzdata

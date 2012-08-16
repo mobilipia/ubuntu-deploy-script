@@ -38,10 +38,10 @@ gem install passenger
 passenger-install-apache2-module
 
 # update the configuration file
-echo "\n\n# mod_passenger tutorial" > /etc/apache2/apache2.conf
-echo "\nLoadModule passenger_module /usr/local/lib/ruby/gems/1.9.1/gems/passenger-3.0.15/ext/apache2/mod_passenger.so\n" > /etc/apache2/apache2.conf
-echo "PassengerRoot /usr/local/lib/ruby/gems/1.9.1/gems/passenger-3.0.15\n" > /etc/apache2/apache2.conf
-echo "PassengerRuby /usr/local/bin/ruby\n" > /etc/apache2/apache2.conf
+echo "\n\n# mod_passenger tutorial" >> /etc/apache2/apache2.conf
+echo "\nLoadModule passenger_module /usr/local/lib/ruby/gems/1.9.1/gems/passenger-3.0.15/ext/apache2/mod_passenger.so\n" >> /etc/apache2/apache2.conf
+echo "PassengerRoot /usr/local/lib/ruby/gems/1.9.1/gems/passenger-3.0.15\n" >> /etc/apache2/apache2.conf
+echo "PassengerRuby /usr/local/bin/ruby\n" >> /etc/apache2/apache2.conf
 
 # restart apache
 /etc/init.d/apache restart
