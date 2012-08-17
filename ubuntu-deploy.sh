@@ -13,6 +13,52 @@
 #															#
 #############################################################
 
+# Process command arguments
+# Usage
+usage() {
+	echo "
+Ubuntu Deploy Script 1.0 - Available Parameters:
+
+[-b -skipbasic] Skip basic setup
+[-c -skipcomponents] Skip component installation
+[-e -skipextras] Skip extra installations
+[-u -unsafe] Skip security updates
+[--help] Script usage.
+"
+
+	exit 0
+}
+
+# Available options
+options=$@
+
+# Options converted to array
+arguments=($options)
+
+# Loop index
+index=0
+
+# Variables
+NoBasic=0
+NoComponents=0
+NoExtras=0
+NoSecurity=0
+
+for argument in $options
+do
+	# Incrementing loop index
+	index=`expr $index + 1`
+	
+	# Getting parameters
+	case $argument in
+		-b|-skipbasic) NoBasic=1 ;;
+		-c|-skipcomponents) NoComponents=1 ;;
+		-e|-skipextras) NoExtras=1 ;;
+		-u|-unsafe) NoSecurity=1 ;;
+		--help) usage ;;
+	esac
+done
+
 # install dialog
 apt-get install -y dialog
 
@@ -33,28 +79,36 @@ if [ $? -gt 0 ]; then
 fi
 
 # basic set up
-sh "admin/deploy-setup.sh"
+if [ $NoBasic -eq 0 ]; then
+	sh "admin/deploy-setup.sh"
+fi
 if [ $? -gt 0 ]; then
 	exit 1;
 fi
 
 # start deployment by securing the installation
-#sh "admin/deploy-secure.sh"
+#if [ $NoSecurity -eq 0 ]; then
+#	sh "admin/deploy-secure.sh"
+#fi
 #if [ $? -gt 0 ]; then
 #	exit 1;
 #fi
 
 # then install all the components in the 'components' directory
-for file in "$(dirname $0)"/components/*.sh
-do
-	sh $file
-done
+if [ $NoComponents -eq 0 ]; then
+	for file in "$(dirname $0)"/components/*.sh
+	do
+		sh $file
+	done
+fi
 
 # install optional extras from the 'extras' directory
-for file in "$(dirname $0)"/extras/*.sh
-do
-	sh $file
-done
+if [ $NoExtras -eq 0 ]; then
+	for file in "$(dirname $0)"/extras/*.sh
+	do
+		sh $file
+	done
+fi
 
 # print thank you message and exit
 dialog --title "All done!" --backtitle "Ubuntu Server Deploy\

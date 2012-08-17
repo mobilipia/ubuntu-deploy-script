@@ -58,7 +58,10 @@ rm -f /tmp/tmp.inputbox.$$
 echo $hostname >> /etc/hostname
 echo '127.0.0.1 localhost.localdomain localhost\n' >> /etc/hosts
 echo $systemip4\ " " \ $fqdn \ " " \ $hostname "\n" >> /etc/hosts
-echo $systemip6\ " " \ $fqdn \ " " \ $hostname "\n" >> /etc/hosts
+
+if [ $systemip6 -ne 0 ]; then
+	echo $systemip6\ " " \ $fqdn \ " " \ $hostname "\n" >> /etc/hosts
+fi
 
 # set the time zone
 dpkg-reconfigure tzdata
