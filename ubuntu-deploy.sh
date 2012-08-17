@@ -33,10 +33,8 @@ Ubuntu Deploy Script 1.0 - Available Parameters:
 options=$@
 
 # Options converted to array
-scriptArgs=($options)
-
-# Loop index
-index=0
+#scriptArgs=($options)
+scriptArgs=( $(echo options) )
 
 # Variables
 NoBasic=0
@@ -46,9 +44,6 @@ NoSecurity=0
 
 for argument in $scriptArgs
 do
-	# Incrementing loop index
-	index=`expr $index + 1`
-	
 	# Getting parameters
 	case $argument in
 		-b|-skipbasic) NoBasic=1 ;;
@@ -63,17 +58,16 @@ done
 apt-get install -y dialog
 
 # print welcome message and confirm the user wants to continue
-dialog --title "Welcome!" --backtitle "Ubuntu Server Deploy\
- Script 1.0" --msgbox "This will deploy a basic Ubuntu installation\
+dialog --title "Welcome!" --backtitle "Ubuntu Server Deploy \
+ Script 1.0" --msgbox "This will deploy a basic Ubuntu installation \
  on a clean install of Ubuntu 10.04LTS. It includes Apache, Postfix, \
- Courier, MySQL, PHP5, Ruby on Rails and some optional extras. . . " 10 60
+ Courier, MySQL, PHP5, Ruby on Rails and some optional extras." 10 60
 
 dialog --title "Continue with installation!" --backtitle "Ubuntu Server Deploy \
  Script 1.0" --yesno "This should be run on a clean Ubuntu 10.04 installation. \
  During the process some changes will be made to security which will involve \
  setting new passwords and restricting access to the root user account.  Do you \
  want to continue?" 10 60
- 
 if [ $? -gt 0 ]; then
 	exit 0;
 fi
