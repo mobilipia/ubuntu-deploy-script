@@ -44,7 +44,7 @@ NoComponents=0
 NoExtras=0
 NoSecurity=0
 
-for argument in $options
+for argument in $scriptArgs
 do
 	# Incrementing loop index
 	index=`expr $index + 1`
