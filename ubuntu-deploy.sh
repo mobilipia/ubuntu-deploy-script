@@ -53,35 +53,45 @@ do
 	esac
 done
 
+echo ""
+echo ""
+echo "Ubuntu Deploy Script v1.0"
+echo ""
+echo "The following options were received:"
+echo ""
+
 # confirm options
-if [ $NoBasic -eq 0 ]; then 
-	echo "Skipping Basic Installation"
+if [ $NoBasic -ne 0 ]; then 
+	echo " - Skipping Basic Installation"
 else
-	echo "Performing Basic Installation"
+	echo " + Performing Basic Installation"
 fi
 
-if [ $NoSecurity -eq 0 ]; then 
-	echo "Skipping securit Updates"
+if [ $NoSecurity -ne 0 ]; then 
+	echo " - Skipping Security Updates"
 else
-	echo "Performing Security Updates"
-fi
-
-
-if [ $NoComponents -eq 0 ]; then 
-	echo "Skipping Component Installation"
-else
-	echo "Performing Component Installation"
+	echo " + Performing Security Updates"
 fi
 
 
-if [ $NoExtras -eq 0 ]; then 
-	echo "Skipping Extra Installation"
+if [ $NoComponents -ne 0 ]; then 
+	echo " - Skipping Component Installation"
 else
-	echo "Performing Extra Installation"
+	echo " + Performing Component Installation"
 fi
 
-echo "To confirm the above options, press any key, or press Ctrl-C to abort..."
+
+if [ $NoExtras -ne 0 ]; then 
+	echo " - Skipping Extra Installation"
+else
+	echo " + Performing Extra Installation"
+fi
+
+echo "Do you want to continue with these options? [y/n]"
 read skipChar
+if [ $skipChar -ne "y" ];
+	exit 0;
+fi
 
 # install dialog
 apt-get install -y dialog
