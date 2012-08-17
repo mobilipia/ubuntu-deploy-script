@@ -45,12 +45,14 @@ fi
 #fi
 
 # then install all the components in the 'components' directory
-for file in components/*.sh ; do
+for file in "$(dirname $0)"/components/*.sh
+do
 	sh $file
 done
 
 # install optional extras from the 'extras' directory
-for file in extras/*.sh ; do
+for file in "$(dirname $0)"/extras/*.sh
+do
 	sh $file
 done
 
