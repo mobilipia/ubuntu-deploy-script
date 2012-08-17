@@ -32,21 +32,39 @@ userName=$(cat /tmp/tmp.inputbox.$$)
 rm -f /tmp/tmp.inputbox.$$
 
 # create a new user for login
-useradd -m -s /bin/bash $userName
+pass1=1
+pass2=2
+while [ $pass1 -ne $pass2 ] 
+do
+	dialog --title "Set Password" --backtitle "Ubuntu Server Deploy\
+	 Script 1.0" --inputbox "Specify a password to use for the new user:" 9 50 2> /tmp/tmp.inputbox.$$	
+	if [ $? -ne 0 ]; then
+		exit 1;
+	fi
+	pass1=$(cat /tmp/tmp.inputbox.$$)
+	rm -f /tmp/tmp.inputbox.$$
 
-# loop until a password is set or the user requests abort
-passResult=1
-while [ $passResult -gt 0 ]; do
-	passwd $userName
-	dialog --title "Retry Password" --backtitle "Ubuntu Server Deploy\
-	 Script 1.0" --yesno "Unable to set a new user password.  Do you \
-	 want to try again (select YES) or abort installation (select NO)?" 9 50
-	if [ $? -gt 0 ]; then
-		exit 1; # exit with error
+	dialog --title "Confirm Password" --backtitle "Ubuntu Server Deploy\
+	 Script 1.0" --inputbox "Confirm the password:" 9 50 2> /tmp/tmp.inputbox.$$	
+	if [ $? -ne 0 ]; then
+		exit 1;
+	fi
+	pass2=$(cat /tmp/tmp.inputbox.$$)
+	rm -f /tmp/tmp.inputbox.$$
+
+	if [ $pass1 -ne $pass2 ]; then
+		dialog --title "Continue with installation!" --backtitle "Ubuntu Server Deploy\
+		 Script 1.0" --yesno "The passwords you have entered do not match.  Do you want \
+		 try again? (Select No to exit installation, or Yes to try again)" 9 50
+		if [ $? -gt 0 ]; then
+			exit 1; # exit with error
+		fi
 	fi
 done
-
-# move the user to the admin group
+ 
+# create a new user for login, change password and set as admin
+useradd -m -s /bin/bash $userName
+echo -e "$pass1\n$pass1\n" | sudo passwd $userName
 usermod -a -G admin $userName
 
 # disable root ssh access
