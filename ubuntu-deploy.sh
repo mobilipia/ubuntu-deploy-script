@@ -127,12 +127,14 @@ if [ $? -gt 0 ]; then
 	exit 1;
 fi
 
-echo "Searching for components in " \ $(dirname $0) \ "/components/.*sh"
+ScriptDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+echo "Searching for components in " \ $ScriptDir \ "/components/.*sh"
 read skipChar
 
 # then install all the components in the 'components' directory
 if [ $NoComponents -eq 0 ]; then
-	for file in "$(dirname $0)"/components/*.sh
+	for file in "$ScriptDir"/components/*.sh
 	do
 		bash $file
 	done
@@ -140,7 +142,7 @@ fi
 
 # install optional extras from the 'extras' directory
 if [ $NoExtras -eq 0 ]; then
-	for file in "$(dirname $0)"/extras/*.sh
+	for file in "$ScriptDir"/extras/*.sh
 	do
 		bash $file
 	done
