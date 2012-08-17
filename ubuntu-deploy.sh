@@ -35,7 +35,7 @@ options=$@
 # Options converted to array
 #scriptArgs=($options)
 #scriptArgs=( $(echo options) )
-declare -a scriptArgs=($options)
+declare -a scriptArgs=( $options )
 
 # Variables
 NoBasic=0
