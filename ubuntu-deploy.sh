@@ -34,17 +34,15 @@ options=$@
 
 # Options converted to array
 scriptArgs=( $options )
-echo options \ " " \ scriptArgs[*]
+
 # Variables
 NoBasic=0
 NoComponents=0
 NoExtras=0
 NoSecurity=0
 
-for argument in $scriptArgs
-do
-	echo "parsing " \ $argument
-	
+for argument in ${scriptArgs[*]}
+do	
 	# Getting parameters
 	case $argument in
 		-b|-skipbasic) NoBasic=1 ;;
@@ -89,9 +87,9 @@ else
 	echo " + Performing Extra Installation"
 fi
 
-echo "Do you want to continue with these options? [y/n]"
+echo "Do you want to continue with these options? [y/n]:"
 read skipChar
-if [ $skipChar -ne "y" ]; then
+if [ "$skipChar" != "y" ]; then
 	exit 0
 fi
 
