@@ -127,10 +127,8 @@ if [ $? -gt 0 ]; then
 	exit 1;
 fi
 
+# get the directory the script is running in so we can find components
 ScriptDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-echo "Searching for components in " \ "$ScriptDir" \ "/components/.*sh"
-read skipChar
 
 # then install all the components in the 'components' directory
 if [ $NoComponents -eq 0 ]; then
