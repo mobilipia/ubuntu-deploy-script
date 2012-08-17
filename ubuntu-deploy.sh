@@ -127,6 +127,9 @@ if [ $? -gt 0 ]; then
 	exit 1;
 fi
 
+echo "Searching for components in " \ $(dirname $0) \ "/components/.*sh"
+read skipChar
+
 # then install all the components in the 'components' directory
 if [ $NoComponents -eq 0 ]; then
 	for file in "$(dirname $0)"/components/*.sh
@@ -147,7 +150,7 @@ fi
 dialog --title "All done!" --backtitle "Ubuntu Server Deploy\
  Script 1.0" --msgbox "The server has been successfully deployed!\
  Enjoy, and feel free to contribute any improvements via github\
- https://github.com/will-hart/ubuntu-server-deploy" 9 50
+ https://github.com/will-hart/ubuntu-server-deploy" 9 60
 
 # if we aren't root user, logout of ssh connection
 if [ `id -u` -ne 0 ]; then 
