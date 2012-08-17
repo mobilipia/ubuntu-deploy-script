@@ -20,7 +20,7 @@ apt-get install -y curl wget sudo build-essential
 # set the host name
 dialog --title "Set the host name" --backtitle "Ubuntu Server Deploy\
  Script 1.0" --inputbox "Set the host name of your server.  This is not the \
- fully qualified domain name (FQDN) but something shorter like bob." 9 50 2> /tmp/tmp.inputbox.$$	
+ fully qualified domain name (FQDN) but something shorter like 'bob'." 9 50 2> /tmp/tmp.inputbox.$$	
 if [ $? -ne 0 ]; then
 	exit 1;
 fi
