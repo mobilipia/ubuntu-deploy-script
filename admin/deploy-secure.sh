@@ -68,12 +68,14 @@ echo -e "$pass1\n$pass1\n" | sudo passwd $userName
 usermod -a -G admin $userName
 
 # disable root ssh access
+echo "Disabling root access..."
 sed -i "s/PermitRootLogin[^ ]/PermitRootLogin no/" /etc/ssh/sshd_config
 
 ### IDEALLY WE WOULD SET SSH_KEY LOGIN HERE, HOWEVER TO UPLOAD KEYS CORRECTLY THIS MUST BE 
 ### CO-ORDINATED FROM THE HOST MACHINE, AND SO IS OMITTED
 
 # login as the new user with sudo access
+echo "Logging in as the new user..."
 sshpass -p $pass1 ssh $userName@localhost
 echo "Please enter the password for the new user below:"
 sudo su
