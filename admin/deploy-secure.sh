@@ -14,7 +14,7 @@
 
 # install shpass for logging in via ssh
 # http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/
-apt-get install sshpass -y
+apt-get install -y sshpass
 
 # get the new user name and password
 dialog --title "Create new user" --backtitle "Ubuntu Server Deploy\
@@ -65,7 +65,8 @@ done
 useradd -m -s /bin/bash $userName
 #echo -e "$pass1\n$pass1\n" | sudo passwd $userName
 #echo "$userName:$pass1" | chpasswd
-echo -n '$#@pass1@#$' | passwd $userName --stdin
+#echo -n '$#@pass1@#$' | passwd $userName --stdin
+passwd $userName
 
 if [ $? -gt 0 ]; then
 	exit 1;
