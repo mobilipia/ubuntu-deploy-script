@@ -33,8 +33,7 @@ Ubuntu Deploy Script 1.0 - Available Parameters:
 options=$@
 
 # Options converted to array
-#arguments=($options)
-read -a arguments <<<$options
+scriptArgs=($options)
 
 # Loop index
 index=0
