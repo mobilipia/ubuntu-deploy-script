@@ -33,9 +33,7 @@ Ubuntu Deploy Script 1.0 - Available Parameters:
 options=$@
 
 # Options converted to array
-#scriptArgs=($options)
-#scriptArgs=( $(echo options) )
-declare -a scriptArgs=( $options )
+scriptArgs=( $options )
 
 # Variables
 NoBasic=0
