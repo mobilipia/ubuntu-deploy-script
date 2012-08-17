@@ -34,7 +34,7 @@ options=$@
 
 # Options converted to array
 scriptArgs=( $options )
-
+echo options \ " " \ scriptArgs[*]
 # Variables
 NoBasic=0
 NoComponents=0
@@ -44,6 +44,7 @@ NoSecurity=0
 for argument in $scriptArgs
 do
 	echo "parsing " \ $argument
+	
 	# Getting parameters
 	case $argument in
 		-b|-skipbasic) NoBasic=1 ;;
@@ -90,7 +91,7 @@ fi
 
 echo "Do you want to continue with these options? [y/n]"
 read skipChar
-if [ $skipChar -ne "y" ];
+if [ $skipChar -ne "y" ]; then
 	exit 0
 fi
 
