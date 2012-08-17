@@ -34,7 +34,8 @@ options=$@
 
 # Options converted to array
 #scriptArgs=($options)
-scriptArgs=( $(echo options) )
+#scriptArgs=( $(echo options) )
+declare -a scriptArgs=($options)
 
 # Variables
 NoBasic=0
@@ -81,12 +82,12 @@ if [ $? -gt 0 ]; then
 fi
 
 # start deployment by securing the installation
-#if [ $NoSecurity -eq 0 ]; then
-#	sh "admin/deploy-secure.sh"
-#fi
-#if [ $? -gt 0 ]; then
-#	exit 1;
-#fi
+if [ $NoSecurity -eq 0 ]; then
+	sh "admin/deploy-secure.sh"
+fi
+if [ $? -gt 0 ]; then
+	exit 1;
+fi
 
 # then install all the components in the 'components' directory
 if [ $NoComponents -eq 0 ]; then
