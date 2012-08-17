@@ -43,6 +43,7 @@ NoSecurity=0
 
 for argument in $scriptArgs
 do
+	echo "parsing " \ $argument
 	# Getting parameters
 	case $argument in
 		-b|-skipbasic) NoBasic=1 ;;
@@ -90,7 +91,7 @@ fi
 echo "Do you want to continue with these options? [y/n]"
 read skipChar
 if [ $skipChar -ne "y" ];
-	exit 0;
+	exit 0
 fi
 
 # install dialog
