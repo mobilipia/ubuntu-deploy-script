@@ -31,41 +31,8 @@ fi
 userName=$(cat /tmp/tmp.inputbox.$$)
 rm -f /tmp/tmp.inputbox.$$
 
-pass1=1
-pass2=2
-while [ $pass1 -ne $pass2 ] 
-do
-	dialog --title "Set Password" --backtitle "Ubuntu Server Deploy\
-	 Script 1.0" --inputbox "Specify a password to use for the new user:" 9 50 2> /tmp/tmp.inputbox.$$	
-	if [ $? -ne 0 ]; then
-		exit 1;
-	fi
-	pass1=$(cat /tmp/tmp.inputbox.$$)
-	rm -f /tmp/tmp.inputbox.$$
-
-	dialog --title "Confirm Password" --backtitle "Ubuntu Server Deploy\
-	 Script 1.0" --inputbox "Confirm the password:" 9 50 2> /tmp/tmp.inputbox.$$	
-	if [ $? -ne 0 ]; then
-		exit 1;
-	fi
-	pass2=$(cat /tmp/tmp.inputbox.$$)
-	rm -f /tmp/tmp.inputbox.$$
-	
-	if [ $pass1 -ne $pass2 ]; then
-		dialog --title "Continue with installation!" --backtitle "Ubuntu Server Deploy\
-		 Script 1.0" --yesno "The passwords you have entered do not match.  Do you want \
-		 try again? (Select No to exit installation, or Yes to try again)" 9 50
-		if [ $? -gt 0 ]; then
-			exit 1; # exit with error
-		fi
-	fi
-done
- 
 # create a new user for login
 useradd -m -s /bin/bash $userName
-#echo -e "$pass1\n$pass1\n" | sudo passwd $userName
-#echo "$userName:$pass1" | chpasswd
-#echo -n '$#@pass1@#$' | passwd $userName --stdin
 
 # loop until a password is set or the user requests abort
 passResult=1
@@ -85,9 +52,8 @@ usermod -a -G admin $userName
 # disable root ssh access
 sed -i "s/PermitRootLogin[^ ]/PermitRootLogin no/" /etc/ssh/sshd_config
 
-# disable password login
-#sed -i "s/PasswordAuthentication [^ ]/PasswordAuthentication no/" /etc/ssh/sshd_config
-# (COMMENTED OUT AS NEED TO GENERATE ON LOCAL MACHINE FIRST)
+### IDEALLY WE WOULD SET SSH_KEY LOGIN HERE, HOWEVER TO UPLOAD KEYS CORRECTLY THIS MUST BE 
+### CO-ORDINATED FROM THE HOST MACHINE, AND SO IS OMITTED
 
 # login as the new user with sudo access
 sshpass -p $pass1 ssh $userName@localhost

@@ -73,7 +73,7 @@ fi
 
 # basic set up
 if [ $NoBasic -eq 0 ]; then
-	sh "admin/deploy-setup.sh"
+	bash "admin/deploy-setup.sh"
 fi
 if [ $? -gt 0 ]; then
 	exit 1;
@@ -81,7 +81,7 @@ fi
 
 # start deployment by securing the installation
 if [ $NoSecurity -eq 0 ]; then
-	sh "admin/deploy-secure.sh"
+	bash "admin/deploy-secure.sh"
 fi
 if [ $? -gt 0 ]; then
 	exit 1;
@@ -91,7 +91,7 @@ fi
 if [ $NoComponents -eq 0 ]; then
 	for file in "$(dirname $0)"/components/*.sh
 	do
-		sh $file
+		bash $file
 	done
 fi
 
@@ -99,7 +99,7 @@ fi
 if [ $NoExtras -eq 0 ]; then
 	for file in "$(dirname $0)"/extras/*.sh
 	do
-		sh $file
+		bash $file
 	done
 fi
 
