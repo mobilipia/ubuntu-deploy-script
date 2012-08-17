@@ -67,8 +67,10 @@ useradd -m -s /bin/bash $userName
 #echo "$userName:$pass1" | chpasswd
 #echo -n '$#@pass1@#$' | passwd $userName --stdin
 passwd $userName
+usermod -a -G admin $userName
 
 if [ $? -gt 0 ]; then
+	echo "Password exited with status - " \ $?
 	exit 1;
 fi
 
