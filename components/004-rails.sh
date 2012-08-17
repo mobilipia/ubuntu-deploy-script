@@ -14,7 +14,11 @@
 #############################################################
 
 # install required modules
-apt-get install -y gcc checkinstall libxml2-dev libxslt-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev libreadline6-dev libc6-dev libssl-dev libmysql++-dev make zlib1g0dev libicu-dev redis-server openssh-server python-dev python-pip libyaml-dev
+apt-get install -y gcc checkinstall libxml2-dev libxslt-dev sqlite3 
+apt-get install -y libsqlite3-dev libcurl4-openssl-dev libreadline6-dev 
+apt-get install -y libc6-dev libssl-dev libmysql++-dev make zlib1g-dev 
+apt-get install -y libicu-dev redis-server openssh-server python-dev 
+apt-get install -y python-pip libyaml-dev
 
 # compile ruby v1.9.3-p194 from source
 cd /opt/
