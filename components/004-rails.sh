@@ -25,7 +25,7 @@ apt-get install -y python-pip libyaml
 
 # compile ruby v1.9.3-p194 from source
 echo "------- NOW INSTALLING RUBY FROM SOURCE ---------- "
-cd /opt/
+cd /opt
 curl -O http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p194.tar.gz
 tar xzvf ruby-1.9.3-p194.tar.gz
 cd ruby-1.9.3-p194
@@ -35,10 +35,10 @@ make install
 
 # install ruby gems
 echo "------- NOW INSTALLING GEMS ---------- "
-cd ./opt/
+cd /opt
 curl -O http://production.cf.rubygems.org/rubygems/rubygems-1.8.24.tgz
 tar xzf rubygems-1.8.24.tgz
-cd ./opt/rubygems-1.8.24
+cd /opt/rubygems-1.8.24
 ruby setup.rb
 ln -s /usr/bin/gem1.8 /usr/bin/gem
 gem update --system
@@ -70,4 +70,3 @@ gem install rails --version 3.0.4 --no-rdoc -no-ri
 echo "------- NOW INSTALLING MYSQL SUPPORT ---------- "
 apt-get install libmysqlclient16 libmysqlclient16-dev
 gem install mysql
-

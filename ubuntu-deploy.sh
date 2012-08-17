@@ -13,6 +13,12 @@
 #															#
 #############################################################
 
+# set up file logging
+>install.log
+>install-error.log
+exec >  >(tee -a install.log)
+exec 2> >(tee -a install-error.log >&2)
+
 # Process command arguments
 # Usage
 usage() {

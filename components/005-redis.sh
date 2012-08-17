@@ -14,11 +14,9 @@
 
 # download redis and install
 echo "------- NOW INSTALLING REDIS FROM SOURCE ---------- "
-cd /opt/
+cd /opt
 curl -O http://redis.googlecode.com/files/redis-2.2.2.tar.gz
 tar xzf redis-2.2.2.tar.gz
 cd redis-2.2.2
 make
-cd src
-cp redis-server redis-cli /usr/bin
-
+cp /opt/src/redis-server /opt/src/redis-cli /usr/bin 
