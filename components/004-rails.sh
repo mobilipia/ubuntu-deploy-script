@@ -14,15 +14,14 @@
 #############################################################
 
 # notify
-echo "------- NOW INSTALLING RAILS ---------- "
-echo "------- NOW INSTALLING REQUIRED MODULES ---------- "
+echo "------- NOW INSTALLING RAILS REQUIRED MODULES ---------- "
 
 # install required modules
-apt-get install -y gcc checkinstall libxml2-dev libxslt-dev sqlite3 
-apt-get install -y libsqlite3-dev libcurl4-openssl-dev libreadline6-dev 
-apt-get install -y libc6-dev libssl-dev libmysql++-dev make zlib1g-dev 
-apt-get install -y libicu-dev redis-server openssh-server python-dev 
-apt-get install -y python-pip libyaml-dev
+apt-get install -y gcc checkinstall libxml2-dev libxslt1-dev sqlite3
+apt-get install -y libsqlite3-dev libcurl4-openssl-dev libreadline6-dev
+apt-get install -y libc6-dev libssl-dev libmysql++-dev make zlib1g-dev
+apt-get install -y libicu-dev redis-server openssh-server python-dev
+apt-get install -y python-pip libyaml
 
 # compile ruby v1.9.3-p194 from source
 echo "------- NOW INSTALLING RUBY FROM SOURCE ---------- "
@@ -36,9 +35,10 @@ make install
 
 # install ruby gems
 echo "------- NOW INSTALLING GEMS ---------- "
-cd /opt/ curl -O http://production.cf.rubygems.org/rubygems/rubygems-1.8.24.tgz
+cd ./opt/
+curl -O http://production.cf.rubygems.org/rubygems/rubygems-1.8.24.tgz
 tar xzf rubygems-1.8.24.tgz
-cd /opt/rubygems-1.8.24
+cd ./opt/rubygems-1.8.24
 ruby setup.rb
 ln -s /usr/bin/gem1.8 /usr/bin/gem
 gem update --system

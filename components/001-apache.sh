@@ -14,5 +14,4 @@
 
 # install apache
 echo "------- NOW INSTALLING APACHE2 ---------- "
-apt-get install -y apache2 apache2-prefork-dev libarpl-dev libaprutil1-dev
-
+apt-get install -y apache2 apache2-prefork-dev libaprl-dev libaprutil1-dev

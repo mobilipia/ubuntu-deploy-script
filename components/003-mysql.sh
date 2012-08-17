@@ -14,13 +14,12 @@
 
 # install mysql server
 echo "------- NOW INSTALLING MYSQL SERVER ---------- "
-apt-get install -y mysql-server mysql-client mysql-common 
+apt-get install -y mysql-server mysql-client mysql-common
 
 # intall phpmyadmin
-echo "------- NOW INSTALLING  ---------- "
-apt-get install -y phpmyadmin
+echo "------- NOW INSTALLING PHPMYADMIN ---------- "
+apt-get install phpmyadmin
 
 # configure
 echo "------- NOW SECURING INSTALLATION  ---------- "
-sudo mysql_secure_installation
-
+mysql_secure_installation

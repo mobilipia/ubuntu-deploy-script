@@ -75,7 +75,7 @@ sed -i "s/PermitRootLogin[^ ]/PermitRootLogin no/" /etc/ssh/sshd_config
 ### CO-ORDINATED FROM THE HOST MACHINE, AND SO IS OMITTED
 
 # login as the new user with sudo access
-echo "Logging in as the new user..."
-sshpass -p $pass1 ssh $userName@localhost
-echo "Please enter the password for the new user below:"
-sudo su
+#echo "Logging in as the new user..."
+#sshpass -p $pass1 ssh $userName@localhost
+#echo "Please enter the password for the new user below:"
+#sudo su
