@@ -37,6 +37,19 @@ To use these scripts, run the following commands from the Ubuntu bash on a **cle
 
 Follow the on screen prompts to complete the installation.
 
+Options
+=======
+
+The sequence of the installation process can be updated by the use of a few simple application flags.  
+
+ + **-b** or **--skipbasic**  Skips basic installation - host names and apt-get upgrades
+ + **-c** or **--skipcomponents**  Skips installation of components (Apache, MySQL, etc) from the /components directory
+ + **-e** or **--skipextras**  Skips installation of extras from the /extras directory
+ + **-u** or **--unsafe** Skips security steps such as removing root login
+ + **--help** Shows the basic usage and exits
+
+
+
 Queries
 =======
 
