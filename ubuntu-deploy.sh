@@ -39,10 +39,10 @@ if [ $? -gt 0 ]; then
 fi
 
 # start deployment by securing the installation
-sh "admin/deploy-secure.sh"
-if [ $? -gt 0 ]; then
-	exit 1;
-fi
+#sh "admin/deploy-secure.sh"
+#if [ $? -gt 0 ]; then
+#	exit 1;
+#fi
 
 # then install all the components in the 'components' directory
 for file in components/*.sh ; do
