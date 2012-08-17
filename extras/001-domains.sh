@@ -13,8 +13,9 @@
 #############################################################
 
 # check if the user wants to add domains
-dialog --title "Add an Apache Domain?" --backtitle "Ubuntu Server Deploy \
-Script 1.0" --yesno "Do you want to add an apache domain?" 9 50
+dialog --title "Add an Apache Domain?" \
+ --backtitle "Ubuntu Server Deploy Script 1.0" \
+ --yesno "Do you want to add an apache domain?" 9 50
 continueWithDomains=$?
 
 while [ $continueWithDomains -eq 0 ]; do
@@ -47,7 +48,9 @@ while [ $continueWithDomains -eq 0 ]; do
 	/etc/init.d/apache2 reload
 
 	# check if the user wants to add more domains
-	dialog --title "Add Another Domain?" --backtitle "Ubuntu Server Deploy\
-	Script 1.0" --yesno "Do you want to add another domain?" 9 50
+	dialog --title "Add Another Domain?"\
+	 --backtitle "Ubuntu Server Deploy Script 1.0"\ 
+	 --yesno "Do you want to add another domain?" 9 50
 	$continueWithDomains=$?
 done
+
