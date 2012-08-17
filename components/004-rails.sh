@@ -56,3 +56,4 @@ gem install rails --version 3.0.4 --no-rdoc -no-ri
 #mysql
 apt-get install libmysqlclient16 libmysqlclient16-dev
 gem install mysql
+

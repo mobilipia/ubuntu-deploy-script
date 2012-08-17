@@ -20,3 +20,4 @@ cd redis-2.2.2
 make
 cd src
 cp redis-server redis-cli /usr/bin
+

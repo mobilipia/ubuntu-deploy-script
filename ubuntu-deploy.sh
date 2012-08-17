@@ -132,7 +132,7 @@ ScriptDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # then install all the components in the 'components' directory
 if [ $NoComponents -eq 0 ]; then
-	for file in "$ScriptDir"/components/
+	for file in "$ScriptDir"/components/*.sh
 	do
 		bash $file
 	done
@@ -140,7 +140,7 @@ fi
 
 # install optional extras from the 'extras' directory
 if [ $NoExtras -eq 0 ]; then
-	for file in "$ScriptDir"/extras/
+	for file in "$ScriptDir"/extras/*.sh
 	do
 		bash $file
 	done

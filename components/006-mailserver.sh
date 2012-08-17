@@ -15,15 +15,15 @@
 #############################################################
 
 # install required packages
-apt-get install postfix postfix-mysql libsasl2-modules libsasl2-modules-sql libgsasl7\
-									libauthen-sasl-cyrus-perl sasl2-bin libpam-mysql\
-				clamav-base libclamav6 clamav-daemon clamav-freshclam\
-				amavisd-new spamassassin spamc postgrey\
-				roundcube\
-				shorewall-commmon shorewall-perl shorewall-doc\
-				courier-base courier-authdaemon courier-authlib-mysql courier-imap \
-									courier-imap-ssl courier-ssl
+apt-get install -y postfix postfix-mysql libsasl2-modules libsasl2-modules-sql
+apt-get install -y libgsasl7 libauthen-sasl-cyrus-perl sasl2-bin libpam-mysql
+apt-get install -y clamav-base libclamav6 clamav-daemon clamav-freshclam
+apt-get install -y amavisd-new spamassassin spamc postgrey roundcube
+apt-get install -y shorewall-commmon shorewall-perl shorewall-doc courier-base
+apt-get install -y courier-authdaemon courier-authlib-mysql courier-imap
+apt-get install -y courier-imap-ssl courier-ssl
 
 # now we configure shorewall
 cp /usr/share/doc/shorewall/default-config/interfaces /etc/shorewall/
 echo "net     eth0            detect          dhcp,tcpflags,logmartians,nosmurfs" >> /etc/shorewall/interfaces
+

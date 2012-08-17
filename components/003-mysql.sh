@@ -17,3 +17,4 @@ apt-get install -y mysql-server mysql-client mysql-common phpmyadmin
 
 # configure
 mysql_secure_installation
+
