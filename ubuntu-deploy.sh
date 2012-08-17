@@ -53,6 +53,36 @@ do
 	esac
 done
 
+# confirm options
+if [ $NoBasic -eq 0 ]; then 
+	echo "Skipping Basic Installation"
+else
+	echo "Performing Basic Installation"
+fi
+
+if [ $NoSecurity -eq 0 ]; then 
+	echo "Skipping securit Updates"
+else
+	echo "Performing Security Updates"
+fi
+
+
+if [ $NoComponents -eq 0 ]; then 
+	echo "Skipping Component Installation"
+else
+	echo "Performing Component Installation"
+fi
+
+
+if [ $NoExtras -eq 0 ]; then 
+	echo "Skipping Extra Installation"
+else
+	echo "Performing Extra Installation"
+fi
+
+echo "To confirm the above options, press any key, or press Ctrl-C to abort..."
+read skipChar
+
 # install dialog
 apt-get install -y dialog
 
