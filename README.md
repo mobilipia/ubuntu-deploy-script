@@ -34,9 +34,9 @@ To use these scripts, run the following commands from the Ubuntu bash on a **cle
     cd /opt/
     git clone git://github.com/mecharius/ubuntu-deploy-scripts.git deploy-scripts
     cd deploy-scripts
-    sh ubuntu-deploy.sh
+    bash ubuntu-deploy.sh
 
-Follow the on screen prompts to complete the installation.
+Note the use of *bash* as opposed to *sh* to run the installation script.  Once the script is running, its as simple as following the on screen prompts to complete the installation.
 
 Options
 =======
