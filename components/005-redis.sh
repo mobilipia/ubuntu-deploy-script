@@ -13,6 +13,7 @@
 #############################################################
 
 # download redis and install
+echo "------- NOW INSTALLING REDIS FROM SOURCE ---------- "
 cd /opt/
 curl -O http://redis.googlecode.com/files/redis-2.2.2.tar.gz
 tar xzf redis-2.2.2.tar.gz
